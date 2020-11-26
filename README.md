@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# Unizar-Folio user sync
+A React project to test unizar-folio user sync
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Setup
+First `cp .env.sample .env`
+Then fill in `.env` vars with your credentials
 
-In the project directory, you can run:
+## Available scripts
 
 ### `npm start`
 

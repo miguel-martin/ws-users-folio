@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { IdentidadAPI } from '../api/identidadAPI'
+import './UsersList.css'
 
 export class UsersList extends Component {
 
@@ -20,16 +21,16 @@ export class UsersList extends Component {
     }
 
     renderUser = (user) => {
-        return(<li>{user.nip} - {user.nombre}</li>)
+        return(<li className='user'>{user.nip} - {user.nombre}</li>)
     }
 
     renderUsers = () => {
         if (!this.state.users.length)
             return('Waiting for users API...')
         else {
-            return(<div>
-                        <h2>Users</h2>
-                        <ul> { this.state.users.map(el => this.renderUser(el))} </ul>
+            return(<div className='users'>
+                        <h2 className='users-title'>Users</h2>
+                        <ul className='users-list'> { this.state.users.map(el => this.renderUser(el))} </ul>
                     </div>
                     )
         }

@@ -1,0 +1,18 @@
+.users {
+
+}
+
+.users-title {
+    font-size: 2rem;
+}
+
+.users-list {
+    display: block;
+    list-style: none;
+    padding: 0;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+}

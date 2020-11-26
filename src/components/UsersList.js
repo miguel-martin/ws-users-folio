@@ -21,7 +21,7 @@ export class UsersList extends Component {
     }
 
     renderUser = (user) => {
-        return(<li className='user'>{user.nip} - {user.nombre}</li>)
+        return(<li className='user' key={user.nip} >{user.nip} - {user.nombre}</li>)
     }
 
     renderUsers = () => {

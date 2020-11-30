@@ -1,0 +1,25 @@
+.user-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-detail-field {
+    display: flex;
+}
+
+.user-detail-field > * {
+    display: inline-block;
+    padding: .2rem;
+}
+
+.user-detail-field--desc{
+    display: inline-block;
+    font-style: italic;
+}
+
+.user-detail-field--val {
+    display: inline-block;
+    font-weight: bold;
+}

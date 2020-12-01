@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { IdentidadAPI } from '../api/identidadAPI'
-import './UsersList.css'
+import { renderUserList } from './UserView'
 
 export class UsersList extends Component {
 
@@ -17,33 +16,14 @@ export class UsersList extends Component {
         console.log('Got data: ', data)
         this.setState({ users: data })
     }
-
-    renderUser = (user) => {
-        return(<li className='user' key={user.nip} >
-                <Link className='user-detail-link'
-                      to={`/users/${user.nip}`}>
-                          {user.nip}
-                </Link>
-                - {user.nombre}
-              </li>)
-    }
-
-    renderUsers = () => {
-        if (!this.state.users.length)
-            return('Waiting for users API...')
-        else {
-            return(<div className='users'>
-                        <h2 className='users-title'>Users</h2>
-                        <ul className='users-list'> { this.state.users.map(el => this.renderUser(el))} </ul>
-                    </div>
-                    )
-        }
-    }
   
     render() {
       return (
         <div>
-            { this.renderUsers() }
+            { !this.state.users.length
+              ? 'Waiting for users API...'
+              : renderUserList(this.state.users)
+            }
         </div>
       );
     }

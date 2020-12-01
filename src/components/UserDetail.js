@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { IdentidadAPI } from '../api/identidadAPI'
 import { renderUserDetail } from './UserView'
 
-import './UserDetail.css'
-
 export class UserDetail extends Component {
 
     state = { userData: {} };

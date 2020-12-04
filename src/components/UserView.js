@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom'
 import './UserDetail.css'
 import './UsersList.css'
 
+const renderUserDetailFieldValue = (fieldVal) => {
+    if (fieldVal instanceof Array)
+        return fieldVal.map(el => JSON.stringify(el))
+    else
+        return fieldVal
+}
+
 const renderUserDetailField = (fieldDesc, fieldVal) => {
     return(
         <div className={`user-detail-field user-detail-field-${fieldDesc}`} key={fieldDesc}>
@@ -10,20 +17,25 @@ const renderUserDetailField = (fieldDesc, fieldVal) => {
                 { fieldDesc }
             </span>
             <span className='user-detail-field--val'>
-                { fieldVal }
+                { renderUserDetailFieldValue(fieldVal) }
             </span>
         </div>
     )
 }
 
 export const renderUserDetail = (user) => {
-    console.log('User data', user) // dev
+    console.log(`Rendering user data for user ${user.nip}`, user) // dev
     const details = Object.entries(user)
+    console.log(details)
     return(
             <div className='user-page'>
                 <div className='user-detail'>
                     <h1>User {user.nip} details</h1>
-                    { details.map(el => renderUserDetailField(el[0], el[1])) }
+                    { details.map(el => { 
+                            console.log('Field', el[0], el[1])
+                            return(renderUserDetailField(el[0], el[1]))
+                        }) 
+                    }
                 </div>
                 <Link className='list-users-link' to="/users">List users</Link>
             </div>

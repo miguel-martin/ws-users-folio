@@ -26,7 +26,14 @@ const renderUserDetailField = (fieldDesc, fieldVal) => {
 
 export const renderUserDetail = (user) => {
     console.log(`Rendering user data for user ${user.nip}`, user) // dev
-    const details = Object.entries(user)
+
+    // order keys alphabetically...
+    const ordered = {};
+    Object.keys(user).sort().forEach(function(key) {
+        ordered[key] = user[key];
+    });
+
+    const details = Object.entries(ordered)
     return(
             <div className='user-page'>
                 <div className='user-detail'>

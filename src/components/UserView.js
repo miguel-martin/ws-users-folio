@@ -26,13 +26,12 @@ const renderUserDetailField = (fieldDesc, fieldVal) => {
 export const renderUserDetail = (user) => {
     console.log(`Rendering user data for user ${user.nip}`, user) // dev
     const details = Object.entries(user)
-    console.log(details)
     return(
             <div className='user-page'>
                 <div className='user-detail'>
                     <h1>User {user.nip} details</h1>
                     { details.map(el => { 
-                            console.log('Field', el[0], el[1])
+                            // console.log('Field', el[0], el[1]) // dev
                             return(renderUserDetailField(el[0], el[1]))
                         }) 
                     }

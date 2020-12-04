@@ -12,6 +12,7 @@
 
 .user-detail-field {
     display: flex;
+    justify-content: center;
 }
 
 .user-detail-field > * {
@@ -22,11 +23,16 @@
 .user-detail-field--desc{
     display: inline-block;
     font-style: italic;
+    min-width: 40vw;
+    text-align: right;
+    margin-right: 1rem;
 }
 
 .user-detail-field--val {
     display: inline-block;
     font-weight: bold;
+    min-width: 40vw;
+    text-align: left;
 }
 
 .list-users-link {

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ReactJson from 'react-json-view'
 import './UserDetail.css'
 import './UsersList.css'
 
 const renderUserDetailFieldValue = (fieldVal) => {
     if (fieldVal instanceof Array)
-        return fieldVal.map(el => JSON.stringify(el))
+        return fieldVal.map((el, index) => <ReactJson src={el} key={index} collapsed/>)
     else
         return fieldVal
 }

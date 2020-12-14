@@ -3,8 +3,34 @@ A React project to test unizar-folio user sync
 
 
 ## Setup
-First `cp .env.sample .env`
+First install dependencies `npm run install`
+Then `cp .env.sample .env`
 Then fill in `.env` vars with your credentials
+Then edit `package.json` and fill the `"homepage":` property (refer to next section for further details)
+
+## Deployment
+This project is prepared to be deployed in a subdir (refer to [https://create-react-app.dev/docs/deployment/] for further info) 
+
+Since it may show some personal data, it is a good idea to protect unwanted access to it. To setup your `BasicAuth` refer to [https://httpd.apache.org/docs/2.4/es/howto/auth.html]
+
+Considering all of the above, to deploy to an Apache Server add the following lines to your `VirtualHost` config:
+
+```# This is a sample config to deploy to /unizar-folio subfolder
+Alias /unizar-folio /var/www/html/ws-folio-unizar-test/
+<Directory /var/www/html/ws-folio-unizar-test>
+           Options -MultiViews
+           RewriteEngine On
+           RewriteCond %{REQUEST_FILENAME} !-f
+           RewriteRule ^ /unizar-folio/index.html [QSA,L]
+           AuthType Basic
+           AuthName "Restricted Files"
+           # (Following line optional)
+           AuthBasicProvider file
+           AuthUserFile "/home/miguelm/apache-passwd/passwords" # path/to/htpasswdFile
+           Require user miguelm # your privileged user (must exist in AuthUserFile!)
+</Directory>
+```
+
 
 ## Available scripts
 

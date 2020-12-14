@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter >
+    <BrowserRouter basename="/unizar-folio">
       <App />
     </BrowserRouter>
   </React.StrictMode>,

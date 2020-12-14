@@ -30,7 +30,7 @@ export const renderUserDetail = (user) => {
     )
 }
 
-const renderUserListItem = ({ nip }) => {
+const renderUserListItem = (nip) => {
     return(<li className='user' key={nip} >
             <Link className='user-detail-link'
                   to={`/users/${nip}`}>

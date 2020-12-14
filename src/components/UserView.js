@@ -58,14 +58,14 @@ const renderUserListItem = (nip) => {
           </li>)
 }
 
-export const renderUserList = (users, since = Date(1999, 1, 1)) => {
+export const renderUserList = (users, year, month, day) => {
     return(<div className='users'>
                 <h1 className='users-title'>Users</h1>
                 <div className='users-subtitle'>
                     <span className='users-subtitle--intro'>Since </span>
-                    <span className='users-subtitle--year'>{since.getFullYear()}</span> 
-                    <span className='users-subtitle--month'>{since.getMonth()}</span>
-                    <span className='users-subtitle--day'>{since.getDate()}</span>
+                    <span className='users-subtitle--year'>{year}</span> 
+                    <span className='users-subtitle--month'>{month}</span>
+                    <span className='users-subtitle--day'>{day}</span>
                 </div>
                 <ul className='users-list'> 
                     { users.map(el => renderUserListItem(el))} 

@@ -25,7 +25,10 @@ export class UsersList extends Component {
         <div>
             { !this.state.users.length
               ? 'Waiting for users API...'
-              : renderUserList(this.state.users, this.state.since)
+              : renderUserList(this.state.users, 
+                               this.state.since.getFullYear(),
+                               this.state.since.getMonth(),
+                               this.state.since.getDate())
             }
         </div>
       );

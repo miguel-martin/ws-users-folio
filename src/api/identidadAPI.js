@@ -13,9 +13,9 @@ export function IdentidadAPI(user, password) {
      * Get User List
      *  If no 'since' date is provided, defaults to 1999-01-01
      */
-    this.getUsers = async function (since = new Date(1999, 1, 1)) {
+    this.getUsers = async function (since = new Date(1999, 0, 1)) {
 
-        const WS_URL_USERLISTFROM = `${this.WS_URL_USERLIST}${since.getFullYear()}-${since.getMonth()}-${since.getDate()}`
+        const WS_URL_USERLISTFROM = `${this.WS_URL_USERLIST}${since.getFullYear()}-${since.getMonth()+1}-${since.getDate()}`
 
         console.log('Fetching users list from ' + WS_URL_USERLISTFROM)
         return fetch(this.CORS_PROXY + WS_URL_USERLISTFROM, 

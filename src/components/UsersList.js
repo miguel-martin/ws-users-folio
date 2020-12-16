@@ -9,7 +9,7 @@ export class UsersList extends Component {
               api: new IdentidadAPI(process.env.REACT_APP_IDENTIDAD_API_USERNAME,
                                      process.env.REACT_APP_IDENTIDAD_API_PWD),
               message: 'Waiting for users API...',
-              since: new Date(2000, 0, 1),
+              since: new Date(2020, 0, 1), // by default, list users from 1 Jan 2020
               users: []
             }
 

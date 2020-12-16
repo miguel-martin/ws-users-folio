@@ -8,3 +8,8 @@
 .datepicker {
   margin-top: 1rem;
 }
+
+.message {
+  margin: 2rem auto;
+  font-weight: bold;
+}

@@ -24,6 +24,19 @@ const renderUserDetailField = (fieldDesc, fieldVal) => {
     )
 }
 
+const renderUserFoto = (baseStr64) => {
+    return(
+        <div className='user-detail-field user-detail-field-photo user-photo'>
+            <span className='user-detail-field--desc'>
+                foto
+            </span>
+            <span className='user-detail-field--val'>
+                <img src={"data:image/jpg;base64," + baseStr64} alt="User photo" />
+            </span>
+        </div>
+    )
+}
+
 export const renderUserDetail = (user) => {
     console.log(`Rendering user data for user ${user.nip}`, user) // dev
 
@@ -40,7 +53,10 @@ export const renderUserDetail = (user) => {
                     <h1>User {user.nip} details</h1>
                     { details.map(el => { 
                             // console.log('Field', el[0], el[1]) // dev
-                            return(renderUserDetailField(el[0], el[1]))
+                            if (el[0] === 'foto') // FIXME - would be better to avoid hardcoding this...
+                                return(renderUserFoto(el[1]))
+                            else
+                                return(renderUserDetailField(el[0], el[1]))
                         }) 
                     }
                 </div>

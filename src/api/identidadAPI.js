@@ -1,9 +1,11 @@
 export function IdentidadAPI(user, password) {
 
-    this.CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-    //this.CORS_PROXY = ''; // NO CORS
-    this.WS_URL_USERINFO = 'https://janovasformacion.unizar.es/identidad/api/bibliotecas/datosUsuario/';
-    this.WS_URL_USERLIST = 'https://janovasformacion.unizar.es/identidad/api/bibliotecas/usuarios/'
+    //this.CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+    this.CORS_PROXY = ''; // NO CORS
+    //this.WS_URL_USERINFO = 'https://janovasformacion.unizar.es/identidad/api/bibliotecas/datosUsuario/';
+    //this.WS_URL_USERLIST = 'https://janovasformacion.unizar.es/identidad/api/bibliotecas/usuarios/'
+    this.WS_URL_USERINFO = 'https://identidad.unizar.es/api/bibliotecas/datosUsuario/';
+    this.WS_URL_USERLIST = 'https://identidad.unizar.es/api/bibliotecas/usuarios/'; 
     // ${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
 
     this.WS_USER = user; 

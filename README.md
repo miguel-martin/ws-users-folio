@@ -11,6 +11,7 @@ Then fill in `.env` vars with your credentials
 
 Then edit `package.json` and fill the `"homepage":` property (refer to next section for further details)
 
+
 ## Deployment
 This project is prepared to be deployed in a subdir defined by the `homepage`property in `package.json`file (refer to [https://create-react-app.dev/docs/deployment/] for further details) 
 
@@ -34,6 +35,28 @@ Alias /unizar-folio /var/www/html/ws-folio-unizar-test/
 </Directory>
 ```
 
+### CORS
+I am using a CORS PROXY to avoid CORS issues.
+
+To deploy your own CORS PROXY to heroku:
+
+```
+git clone https://github.com/Rob--W/cors-anywhere.git
+cd cors-anywhere/
+npm install
+heroku login
+heroku create 
+# this will create an app in heroku and return the app name,
+# i.e: https://desolate-fortress-91736.herokuapp.com/
+
+# now add the new remote using the app name...
+heroku git:remote -a desolate-fortress-91736
+
+# and deploy
+git add .
+git commit -m "I can be better"
+git push heroku master
+```
 
 ## Available scripts
 

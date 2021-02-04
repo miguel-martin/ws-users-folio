@@ -1,6 +1,7 @@
 export function IdentidadAPI(user, password) {
 
-    this.CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+    //this.CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+    this.CORS_PROXY = 'https://desolate-fortress-91736.herokuapp.com/'; // custom proxy
     //this.CORS_PROXY = ''; // NO CORS
     //this.WS_URL_USERINFO = 'https://janovasformacion.unizar.es/identidad/api/bibliotecas/datosUsuario/';
     //this.WS_URL_USERLIST = 'https://janovasformacion.unizar.es/identidad/api/bibliotecas/usuarios/'
@@ -20,7 +21,7 @@ export function IdentidadAPI(user, password) {
 
         const WS_URL_USERLISTFROM = `${this.WS_URL_USERLIST}${since.getFullYear()}-${since.getMonth()+1}-${since.getDate()}`
 
-        console.log('Fetching users list from ' + WS_URL_USERLISTFROM)
+        console.log('Fetching users list from ' + this.CORS_PROXY + WS_URL_USERLISTFROM)
         return fetch(this.CORS_PROXY + WS_URL_USERLISTFROM, 
               { method:'GET', 
                 headers: {'Authorization': 'Basic ' + btoa(`${this.WS_USER}:${this.WS_PWD}`)}
@@ -46,7 +47,7 @@ export function IdentidadAPI(user, password) {
      * Get User List
      */
     this.getUserInfo = async function (nip) {
-        console.log('Fetching user info from ' + this.WS_URL_USERINFO + nip)
+        console.log('Fetching user info from ' + this.CORS_PROXY  + this.WS_URL_USERINFO + nip)
         return fetch(this.CORS_PROXY + this.WS_URL_USERINFO + nip, 
               { method:'GET', 
                 headers: {'Authorization': 'Basic ' + btoa(`${this.WS_USER}:${this.WS_PWD}`)}

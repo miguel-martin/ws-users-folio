@@ -3,7 +3,7 @@ A React project to test unizar-folio user sync
 
 
 ## Setup
-First install dependencies `npm run install`
+First install dependencies: `npm install`
 
 Then `cp .env.sample .env`
 
